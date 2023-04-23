@@ -1,0 +1,23 @@
+{
+  "dev": {
+    "awscloudformation": {
+      "AuthRoleName": "amplify-dormrate-dev-163411-authRole",
+      "UnauthRoleArn": "arn:aws:iam::809837771921:role/amplify-dormrate-dev-163411-unauthRole",
+      "AuthRoleArn": "arn:aws:iam::809837771921:role/amplify-dormrate-dev-163411-authRole",
+      "Region": "us-east-2",
+      "DeploymentBucketName": "amplify-dormrate-dev-163411-deployment",
+      "UnauthRoleName": "amplify-dormrate-dev-163411-unauthRole",
+      "StackName": "amplify-dormrate-dev-163411",
+      "StackId": "arn:aws:cloudformation:us-east-2:809837771921:stack/amplify-dormrate-dev-163411/350d5ee0-e216-11ed-9878-0a0061cd359d",
+      "AmplifyAppId": "d3m9hxq04uygtm"
+    },
+    "categories": {
+      "function": {
+        "searchById": {}
+      },
+      "auth": {
+        "dormrate": {}
+      }
+    }
+  }
+}
