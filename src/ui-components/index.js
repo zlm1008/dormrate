@@ -5,5 +5,6 @@
  **************************************************************************/
 
 export { default as studioTheme } from "./studioTheme";
+export { default as NewReview } from "./NewReview";
 export { default as ReviewCreateForm } from "./ReviewCreateForm";
 export { default as ReviewUpdateForm } from "./ReviewUpdateForm";

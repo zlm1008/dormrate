@@ -1,5 +1,19 @@
 {
   "api": {
+    "RESTapi": {
+      "dependsOn": [
+        {
+          "attributes": [
+            "Name",
+            "Arn"
+          ],
+          "category": "function",
+          "resourceName": "findRatingById"
+        }
+      ],
+      "providerPlugin": "awscloudformation",
+      "service": "API Gateway"
+    },
     "dormrate": {
       "dependsOn": [],
       "output": {
@@ -53,6 +67,31 @@
       },
       "providerPlugin": "awscloudformation",
       "service": "Cognito"
+    }
+  },
+  "function": {
+    "findRatingById": {
+      "build": true,
+      "providerPlugin": "awscloudformation",
+      "service": "Lambda"
+    }
+  },
+  "parameters": {
+    "AMPLIFY_function_findRatingById_deploymentBucketName": {
+      "usedBy": [
+        {
+          "category": "function",
+          "resourceName": "findRatingById"
+        }
+      ]
+    },
+    "AMPLIFY_function_findRatingById_s3Key": {
+      "usedBy": [
+        {
+          "category": "function",
+          "resourceName": "findRatingById"
+        }
+      ]
     }
   }
 }

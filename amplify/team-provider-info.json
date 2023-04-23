@@ -13,10 +13,18 @@
     },
     "categories": {
       "function": {
-        "searchById": {}
+        "searchById": {},
+        "findRatingById": {
+          "deploymentBucketName": "amplify-dormrate-dev-163411-deployment",
+          "s3Key": "amplify-builds/findRatingById-516e612b717731664931-build.zip"
+        }
       },
       "auth": {
         "dormrate": {}
+      },
+      "api": {
+        "dormrate": {},
+        "RESTapi": {}
       }
     }
   }

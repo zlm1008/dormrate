@@ -6,7 +6,7 @@
 
 /* eslint-disable */
 import * as React from "react";
-import { Button, Flex, Grid, TextField } from "@aws-amplify/ui-react";
+import { Button, Flex, Grid, TextField, useTheme } from "@aws-amplify/ui-react";
 import { getOverrideProps } from "@aws-amplify/ui-react/internal";
 import { Review as Review0 } from "../models";
 import { fetchByPath, validateField } from "./utils";
@@ -22,6 +22,7 @@ export default function ReviewCreateForm(props) {
     overrides,
     ...rest
   } = props;
+  const { tokens } = useTheme();
   const initialValues = {
     UniversityName: "",
     UniversityRating: "",
@@ -82,8 +83,8 @@ export default function ReviewCreateForm(props) {
   return (
     <Grid
       as="form"
-      rowGap="15px"
-      columnGap="15px"
+      rowGap={tokens.space.xxxs.value}
+      columnGap={tokens.space.xxxs.value}
       padding="20px"
       onSubmit={async (event) => {
         event.preventDefault();
@@ -376,7 +377,7 @@ export default function ReviewCreateForm(props) {
           {...getOverrideProps(overrides, "ClearButton")}
         ></Button>
         <Flex
-          gap="15px"
+          gap={tokens.space.xxxs.value}
           {...getOverrideProps(overrides, "RightAlignCTASubFlex")}
         >
           <Button
