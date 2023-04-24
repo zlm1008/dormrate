@@ -1,9 +1,10 @@
 /* eslint-disable no-undef */
 import "./App.css";
-import { Tabs, TabItem, Text } from "@aws-amplify/ui-react";
+import { Tabs, TabItem, SearchField } from "@aws-amplify/ui-react";
 import { NewReview } from "./ui-components";
 import { Amplify, Auth } from "aws-amplify";
 import { Authenticator } from "@aws-amplify/ui-react";
+import { useQuery, gql } from "@apollo/client";
 
 Amplify.configure({
   Auth: {
@@ -11,7 +12,9 @@ Amplify.configure({
     userPoolWebClientId: "2tkvhvk5j1ktkpado1vhn6s7kt",
     region: "us-east-2",
   },
+  
 });
+
 
 async function signOutAmp() {
   try {
@@ -19,6 +22,40 @@ async function signOutAmp() {
   } catch (error) {
     console.log("error signing out: ", error);
   }
+}
+
+let listReviewsQuery = gql`
+{
+  query MyQuery {
+    listReviews(limit: 100) {
+      items {
+        UniversityName
+        UniversityRating
+        DormName
+        DormRating
+        RoomNumber
+        RoomRating
+        Review
+      }
+    }
+  }
+}`;
+
+function ListElements() {
+const { data, loading, error } = useQuery(listReviewsQuery);
+
+  if (loading) return "Loading...";
+  if (error) return <pre>{error.message}</pre>
+
+  return (
+    <div>
+      <ul>
+        {data.reviews.map((review) => (
+          <li key={review.UniversityName}>{review.UniveristyRating}</li>
+        ))}
+      </ul>
+    </div>
+  );
 }
 
 function App() {
@@ -33,9 +70,10 @@ function App() {
                 <div class="row">
                   <div class="card m-2">
                     <h3 class="card-title mt-4 m-3">Recent Reviews</h3>
+                    <SearchField></SearchField>
                     <hr></hr>
                     <div class="card-body">
-                      List of reviews will show up here
+                      <ListElements></ListElements>
                     </div>
                   </div>
                 </div>
@@ -56,7 +94,7 @@ function App() {
                     </div>
                   </div>
                 </div>
-               </div>
+              </div>
             </header>
           </TabItem>
 
@@ -68,16 +106,12 @@ function App() {
                   <div class="card m-2">
                     <h3 class="card-title mt-4 m-3">My Account</h3>
                     <hr></hr>
-                    <div class="card-body">
-                      
-                    </div>
+                    <div class="card-body"></div>
                   </div>
-                  <div class="card m-2">
+                  <div class="card m-2 inline">
                     <h3 class="card-title mt-4 m-3">My Reviews</h3>
                     <hr></hr>
-                    <div class="card-body">
-                      .
-                    </div>
+                    <div class="card-body"></div> 
                   </div>
                 </div>
               </div>
