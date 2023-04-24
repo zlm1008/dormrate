@@ -5,14 +5,14 @@
  **************************************************************************/
 
 import * as React from "react";
-import { GridProps, TextAreaFieldProps, TextFieldProps } from "@aws-amplify/ui-react";
+import { GridProps, TextFieldProps } from "@aws-amplify/ui-react";
 import { EscapeHatchProps } from "@aws-amplify/ui-react/internal";
 export declare type ValidationResponse = {
     hasError: boolean;
     errorMessage?: string;
 };
 export declare type ValidationFunction<T> = (value: T, validationResponse: ValidationResponse) => ValidationResponse | Promise<ValidationResponse>;
-export declare type NewReviewInputValues = {
+export declare type RatingCreateFormInputValues = {
     UniversityName?: string;
     UniversityRating?: number;
     DormName?: string;
@@ -21,7 +21,7 @@ export declare type NewReviewInputValues = {
     RoomRating?: number;
     Rating?: string;
 };
-export declare type NewReviewValidationValues = {
+export declare type RatingCreateFormValidationValues = {
     UniversityName?: ValidationFunction<string>;
     UniversityRating?: ValidationFunction<number>;
     DormName?: ValidationFunction<string>;
@@ -31,27 +31,24 @@ export declare type NewReviewValidationValues = {
     Rating?: ValidationFunction<string>;
 };
 export declare type PrimitiveOverrideProps<T> = Partial<T> & React.DOMAttributes<HTMLDivElement>;
-export declare type NewReviewOverridesProps = {
-    NewReviewGrid?: PrimitiveOverrideProps<GridProps>;
-    RowGrid0?: PrimitiveOverrideProps<GridProps>;
+export declare type RatingCreateFormOverridesProps = {
+    RatingCreateFormGrid?: PrimitiveOverrideProps<GridProps>;
     UniversityName?: PrimitiveOverrideProps<TextFieldProps>;
     UniversityRating?: PrimitiveOverrideProps<TextFieldProps>;
-    RowGrid1?: PrimitiveOverrideProps<GridProps>;
     DormName?: PrimitiveOverrideProps<TextFieldProps>;
     DormRating?: PrimitiveOverrideProps<TextFieldProps>;
-    RowGrid2?: PrimitiveOverrideProps<GridProps>;
     RoomNumber?: PrimitiveOverrideProps<TextFieldProps>;
     RoomRating?: PrimitiveOverrideProps<TextFieldProps>;
-    Rating?: PrimitiveOverrideProps<TextAreaFieldProps>;
+    Rating?: PrimitiveOverrideProps<TextFieldProps>;
 } & EscapeHatchProps;
-export declare type NewReviewProps = React.PropsWithChildren<{
-    overrides?: NewReviewOverridesProps | undefined | null;
+export declare type RatingCreateFormProps = React.PropsWithChildren<{
+    overrides?: RatingCreateFormOverridesProps | undefined | null;
 } & {
     clearOnSuccess?: boolean;
-    onSubmit?: (fields: NewReviewInputValues) => NewReviewInputValues;
-    onSuccess?: (fields: NewReviewInputValues) => void;
-    onError?: (fields: NewReviewInputValues, errorMessage: string) => void;
-    onChange?: (fields: NewReviewInputValues) => NewReviewInputValues;
-    onValidate?: NewReviewValidationValues;
+    onSubmit?: (fields: RatingCreateFormInputValues) => RatingCreateFormInputValues;
+    onSuccess?: (fields: RatingCreateFormInputValues) => void;
+    onError?: (fields: RatingCreateFormInputValues, errorMessage: string) => void;
+    onChange?: (fields: RatingCreateFormInputValues) => RatingCreateFormInputValues;
+    onValidate?: RatingCreateFormValidationValues;
 } & React.CSSProperties>;
-export default function NewReview(props: NewReviewProps): React.ReactElement;
+export default function RatingCreateForm(props: RatingCreateFormProps): React.ReactElement;

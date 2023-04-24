@@ -1,7 +1,7 @@
 export const schema = {
     "models": {
-        "Review": {
-            "name": "Review",
+        "Rating": {
+            "name": "Rating",
             "fields": {
                 "id": {
                     "name": "id",
@@ -52,8 +52,8 @@ export const schema = {
                     "isRequired": true,
                     "attributes": []
                 },
-                "Review": {
-                    "name": "Review",
+                "Rating": {
+                    "name": "Rating",
                     "isArray": false,
                     "type": "String",
                     "isRequired": false,
@@ -77,7 +77,7 @@ export const schema = {
                 }
             },
             "syncable": true,
-            "pluralName": "Reviews",
+            "pluralName": "Ratings",
             "attributes": [
                 {
                     "type": "model",
@@ -95,6 +95,15 @@ export const schema = {
                                     "delete",
                                     "read"
                                 ]
+                            },
+                            {
+                                "allow": "private",
+                                "operations": [
+                                    "create",
+                                    "update",
+                                    "delete",
+                                    "read"
+                                ]
                             }
                         ]
                     }
@@ -105,5 +114,5 @@ export const schema = {
     "enums": {},
     "nonModels": {},
     "codegenVersion": "3.4.0",
-    "version": "c3573f0c3d817a4f3c532ead1dcab11b"
+    "version": "9162e5c15e28a9013936d2ed000372cc"
 };

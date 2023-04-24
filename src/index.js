@@ -3,7 +3,7 @@ import ReactDOM from "react-dom/client";
 import "./index.css";
 import App from "./App";
 import reportWebVitals from "./reportWebVitals";
-import {  Amplify } from "aws-amplify";
+import { Amplify } from "aws-amplify";
 import { ApolloProvider, ApolloClient, InMemoryCache } from "@apollo/client";
 
 import awsconfig from "./aws-exports";
@@ -13,9 +13,9 @@ import "@aws-amplify/ui-react/styles.css";
 Amplify.configure(awsconfig);
 
 const client = new ApolloClient({
-  uri: "https://kizzemz3p5bcdmurlahjummtti.appsync-api.us-east-2.amazonaws.com/graphql",
+  uri: "https://eicyj3ddpfbn7lwit7thyf2c5i.appsync-api.us-east-2.amazonaws.com/graphql",
   headers: {
-    Authorization: 'da2-pfhewlqeo5gpxfbyvn4qmtkt4e',
+    Autorization: "da2-xx3vjmu3lbecdpg3lloajhf6dm",
   },
   cache: new InMemoryCache(),
 });

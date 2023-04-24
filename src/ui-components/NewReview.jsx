@@ -15,7 +15,7 @@ import {
   useTheme,
 } from "@aws-amplify/ui-react";
 import { getOverrideProps } from "@aws-amplify/ui-react/internal";
-import { Review as Review0 } from "../models";
+import { Rating as Rating0 } from "../models";
 import { fetchByPath, validateField } from "./utils";
 import { DataStore } from "aws-amplify";
 export default function NewReview(props) {
@@ -37,7 +37,7 @@ export default function NewReview(props) {
     DormRating: "",
     RoomNumber: "",
     RoomRating: "",
-    Review: "",
+    Rating: "",
   };
   const [UniversityName, setUniversityName] = React.useState(
     initialValues.UniversityName
@@ -49,7 +49,7 @@ export default function NewReview(props) {
   const [DormRating, setDormRating] = React.useState(initialValues.DormRating);
   const [RoomNumber, setRoomNumber] = React.useState(initialValues.RoomNumber);
   const [RoomRating, setRoomRating] = React.useState(initialValues.RoomRating);
-  const [review, setReview] = React.useState(initialValues.Review);
+  const [rating, setRating] = React.useState(initialValues.Rating);
   const [errors, setErrors] = React.useState({});
   const resetStateValues = () => {
     setUniversityName(initialValues.UniversityName);
@@ -58,7 +58,7 @@ export default function NewReview(props) {
     setDormRating(initialValues.DormRating);
     setRoomNumber(initialValues.RoomNumber);
     setRoomRating(initialValues.RoomRating);
-    setReview(initialValues.Review);
+    setRating(initialValues.Rating);
     setErrors({});
   };
   const validations = {
@@ -68,7 +68,7 @@ export default function NewReview(props) {
     DormRating: [{ type: "Required" }],
     RoomNumber: [{ type: "Required" }],
     RoomRating: [{ type: "Required" }],
-    Review: [],
+    Rating: [],
   };
   const runValidationTasks = async (
     fieldName,
@@ -102,7 +102,7 @@ export default function NewReview(props) {
           DormRating,
           RoomNumber,
           RoomRating,
-          Review: review,
+          Rating: rating,
         };
         const validationResponses = await Promise.all(
           Object.keys(validations).reduce((promises, fieldName) => {
@@ -132,7 +132,7 @@ export default function NewReview(props) {
               modelFields[key] = undefined;
             }
           });
-          await DataStore.save(new Review0(modelFields));
+          await DataStore.save(new Rating0(modelFields));
           if (onSuccess) {
             onSuccess(modelFields);
           }
@@ -169,7 +169,7 @@ export default function NewReview(props) {
                 DormRating,
                 RoomNumber,
                 RoomRating,
-                Review: review,
+                Rating: rating,
               };
               const result = onChange(modelFields);
               value = result?.UniversityName ?? value;
@@ -203,7 +203,7 @@ export default function NewReview(props) {
                 DormRating,
                 RoomNumber,
                 RoomRating,
-                Review: review,
+                Rating: rating,
               };
               const result = onChange(modelFields);
               value = result?.UniversityRating ?? value;
@@ -242,7 +242,7 @@ export default function NewReview(props) {
                 DormRating,
                 RoomNumber,
                 RoomRating,
-                Review: review,
+                Rating: rating,
               };
               const result = onChange(modelFields);
               value = result?.DormName ?? value;
@@ -276,7 +276,7 @@ export default function NewReview(props) {
                 DormRating: value,
                 RoomNumber,
                 RoomRating,
-                Review: review,
+                Rating: rating,
               };
               const result = onChange(modelFields);
               value = result?.DormRating ?? value;
@@ -313,7 +313,7 @@ export default function NewReview(props) {
                 DormRating,
                 RoomNumber: value,
                 RoomRating,
-                Review: review,
+                Rating: rating,
               };
               const result = onChange(modelFields);
               value = result?.RoomNumber ?? value;
@@ -347,7 +347,7 @@ export default function NewReview(props) {
                 DormRating,
                 RoomNumber,
                 RoomRating: value,
-                Review: review,
+                Rating: rating,
               };
               const result = onChange(modelFields);
               value = result?.RoomRating ?? value;
@@ -364,7 +364,7 @@ export default function NewReview(props) {
         ></TextField>
       </Grid>
       <TextAreaField
-        label="Review"
+        label="Rating"
         isRequired={false}
         isReadOnly={false}
         onChange={(e) => {
@@ -377,20 +377,20 @@ export default function NewReview(props) {
               DormRating,
               RoomNumber,
               RoomRating,
-              Review: value,
+              Rating: value,
             };
             const result = onChange(modelFields);
-            value = result?.Review ?? value;
+            value = result?.Rating ?? value;
           }
-          if (errors.Review?.hasError) {
-            runValidationTasks("Review", value);
+          if (errors.Rating?.hasError) {
+            runValidationTasks("Rating", value);
           }
-          setReview(value);
+          setRating(value);
         }}
-        onBlur={() => runValidationTasks("Review", review)}
-        errorMessage={errors.Review?.errorMessage}
-        hasError={errors.Review?.hasError}
-        {...getOverrideProps(overrides, "Review")}
+        onBlur={() => runValidationTasks("Rating", rating)}
+        errorMessage={errors.Rating?.errorMessage}
+        hasError={errors.Rating?.hasError}
+        {...getOverrideProps(overrides, "Rating")}
       ></TextAreaField>
       <Flex
         justifyContent="space-between"

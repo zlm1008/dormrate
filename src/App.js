@@ -1,8 +1,8 @@
 /* eslint-disable no-undef */
 import "./App.css";
-import { Tabs, TabItem, SearchField } from "@aws-amplify/ui-react";
+import { Tabs, TabItem, SearchField, Grid } from "@aws-amplify/ui-react";
 import { NewReview } from "./ui-components";
-import { Amplify, Auth, dynamodb } from "aws-amplify";
+import { Amplify, Auth } from "aws-amplify";
 import { Authenticator } from "@aws-amplify/ui-react";
 import { useQuery, gql } from "@apollo/client";
 
@@ -47,11 +47,7 @@ const { data, loading, error } = useQuery(LIST_REVIEWS);
 
   return (
     <div>
-      <ul>
-        {data.Reviews.map((Review) => (
-          <li key={Review.ID}>{Review.UniveristyName}</li>
-        ))}
-      </ul>
+      <Grid>{JSON.stringify(data)}</Grid>
     </div>
   );
 }
@@ -71,7 +67,7 @@ function App() {
                     <SearchField></SearchField>
                     <hr></hr>
                     <div class="card-body">
-                      <ListElements></ListElements>
+                      <ListElements />
                     </div>
                   </div>
                 </div>
