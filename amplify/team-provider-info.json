@@ -32,8 +32,6 @@
         "userPoolGroups": {}
       },
       "api": {
-        "dormrate": {},
-        "RESTapi": {},
         "finalAPI": {}
       },
       "storage": {

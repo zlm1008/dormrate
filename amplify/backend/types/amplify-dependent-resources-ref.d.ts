@@ -1,15 +1,5 @@
 export type AmplifyDependentResourcesAttributes = {
   "api": {
-    "RESTapi": {
-      "ApiId": "string",
-      "ApiName": "string",
-      "RootUrl": "string"
-    },
-    "dormrate": {
-      "GraphQLAPIEndpointOutput": "string",
-      "GraphQLAPIIdOutput": "string",
-      "GraphQLAPIKeyOutput": "string"
-    },
     "finalAPI": {
       "ApiId": "string",
       "ApiName": "string",
