@@ -1,5 +1,5 @@
 import { gql, useQuery } from "@apollo/client";
-import { Grid } from "react";
+import { Grid } from "@aws-amplify/ui-react"
 
 let LIST_REVIEWS = gql`
   {
