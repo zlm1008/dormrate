@@ -1,8 +1,13 @@
 import "./App.css";
+import { API } from "aws-amplify";
 import { Tabs, TabItem } from "@aws-amplify/ui-react";
 import { NewReview } from "./ui-components";
 
 let currUser = 'name';
+
+function getReviews(){
+
+}
 
 function App() {
   return (
@@ -12,6 +17,7 @@ function App() {
         <TabItem title="Home">
           <header className="App-header">
             <h2>Welcome {currUser}</h2>
+            {getReviews()}
           </header>
         </TabItem>
 
