@@ -34,6 +34,20 @@
       },
       "providerPlugin": "awscloudformation",
       "service": "AppSync"
+    },
+    "finalAPI": {
+      "dependsOn": [
+        {
+          "attributes": [
+            "Name",
+            "Arn"
+          ],
+          "category": "function",
+          "resourceName": "finalFunction"
+        }
+      ],
+      "providerPlugin": "awscloudformation",
+      "service": "API Gateway"
     }
   },
   "auth": {
@@ -86,13 +100,64 @@
     }
   },
   "function": {
+    "finalFunction": {
+      "build": true,
+      "dependsOn": [
+        {
+          "attributeEnvMap": {
+            "Arn": "TABLE_ARN",
+            "Name": "TABLE_NAME"
+          },
+          "attributes": [
+            "Name",
+            "Arn"
+          ],
+          "category": "storage",
+          "resourceName": "reviews"
+        }
+      ],
+      "providerPlugin": "awscloudformation",
+      "service": "Lambda"
+    },
     "findRatingById": {
       "build": true,
+      "providerPlugin": "awscloudformation",
+      "service": "Lambda"
+    },
+    "reviewsTrigger251505e9": {
+      "build": true,
+      "dependsOn": [
+        {
+          "attributes": [
+            "Name",
+            "Arn",
+            "StreamArn"
+          ],
+          "category": "storage",
+          "resourceName": "reviews"
+        }
+      ],
       "providerPlugin": "awscloudformation",
       "service": "Lambda"
     }
   },
   "parameters": {
+    "AMPLIFY_function_finalFunction_deploymentBucketName": {
+      "usedBy": [
+        {
+          "category": "function",
+          "resourceName": "finalFunction"
+        }
+      ]
+    },
+    "AMPLIFY_function_finalFunction_s3Key": {
+      "usedBy": [
+        {
+          "category": "function",
+          "resourceName": "finalFunction"
+        }
+      ]
+    },
     "AMPLIFY_function_findRatingById_deploymentBucketName": {
       "usedBy": [
         {
@@ -108,6 +173,28 @@
           "resourceName": "findRatingById"
         }
       ]
+    },
+    "AMPLIFY_function_reviewsTrigger251505e9_deploymentBucketName": {
+      "usedBy": [
+        {
+          "category": "function",
+          "resourceName": "reviewsTrigger251505e9"
+        }
+      ]
+    },
+    "AMPLIFY_function_reviewsTrigger251505e9_s3Key": {
+      "usedBy": [
+        {
+          "category": "function",
+          "resourceName": "reviewsTrigger251505e9"
+        }
+      ]
+    }
+  },
+  "storage": {
+    "reviews": {
+      "providerPlugin": "awscloudformation",
+      "service": "DynamoDB"
     }
   }
 }

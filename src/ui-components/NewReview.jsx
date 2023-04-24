@@ -6,7 +6,14 @@
 
 /* eslint-disable */
 import * as React from "react";
-import { Button, Flex, Grid, TextField } from "@aws-amplify/ui-react";
+import {
+  Button,
+  Flex,
+  Grid,
+  TextAreaField,
+  TextField,
+  useTheme,
+} from "@aws-amplify/ui-react";
 import { getOverrideProps } from "@aws-amplify/ui-react/internal";
 import { Review as Review0 } from "../models";
 import { fetchByPath, validateField } from "./utils";
@@ -22,6 +29,7 @@ export default function NewReview(props) {
     overrides,
     ...rest
   } = props;
+  const { tokens } = useTheme();
   const initialValues = {
     UniversityName: "",
     UniversityRating: "",
@@ -82,7 +90,7 @@ export default function NewReview(props) {
   return (
     <Grid
       as="form"
-      rowGap="8px"
+      rowGap={tokens.space.xs.value}
       columnGap="20px"
       padding="20px"
       onSubmit={async (event) => {
@@ -355,11 +363,10 @@ export default function NewReview(props) {
           {...getOverrideProps(overrides, "RoomRating")}
         ></TextField>
       </Grid>
-      <TextField
+      <TextAreaField
         label="Review"
         isRequired={false}
         isReadOnly={false}
-        value={review}
         onChange={(e) => {
           let { value } = e.target;
           if (onChange) {
@@ -384,7 +391,7 @@ export default function NewReview(props) {
         errorMessage={errors.Review?.errorMessage}
         hasError={errors.Review?.hasError}
         {...getOverrideProps(overrides, "Review")}
-      ></TextField>
+      ></TextAreaField>
       <Flex
         justifyContent="space-between"
         {...getOverrideProps(overrides, "CTAFlex")}

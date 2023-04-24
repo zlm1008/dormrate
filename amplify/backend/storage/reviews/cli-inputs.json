@@ -1,0 +1,16 @@
+{
+  "resourceName": "reviews",
+  "tableName": "reviews",
+  "partitionKey": {
+    "fieldName": "UniversityName",
+    "fieldType": "string"
+  },
+  "sortKey": {
+    "fieldName": "DormRating",
+    "fieldType": "number"
+  },
+  "gsi": [],
+  "triggerFunctions": [
+    "reviewsTrigger251505e9"
+  ]
+}

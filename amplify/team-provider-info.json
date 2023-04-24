@@ -17,14 +17,27 @@
         "findRatingById": {
           "deploymentBucketName": "amplify-dormrate-dev-163411-deployment",
           "s3Key": "amplify-builds/findRatingById-516e612b717731664931-build.zip"
+        },
+        "finalFunction": {
+          "deploymentBucketName": "amplify-dormrate-dev-163411-deployment",
+          "s3Key": "amplify-builds/finalFunction-50536449304c315a3373-build.zip"
+        },
+        "reviewsTrigger251505e9": {
+          "deploymentBucketName": "amplify-dormrate-dev-163411-deployment",
+          "s3Key": "amplify-builds/reviewsTrigger251505e9-4262522b4e4f6a2f3734-build.zip"
         }
       },
       "auth": {
-        "dormrate": {}
+        "dormrate": {},
+        "userPoolGroups": {}
       },
       "api": {
         "dormrate": {},
-        "RESTapi": {}
+        "RESTapi": {},
+        "finalAPI": {}
+      },
+      "storage": {
+        "reviews": {}
       }
     }
   }

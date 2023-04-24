@@ -5,7 +5,7 @@
  **************************************************************************/
 
 import * as React from "react";
-import { GridProps, TextFieldProps } from "@aws-amplify/ui-react";
+import { GridProps, TextAreaFieldProps, TextFieldProps } from "@aws-amplify/ui-react";
 import { EscapeHatchProps } from "@aws-amplify/ui-react/internal";
 export declare type ValidationResponse = {
     hasError: boolean;
@@ -42,7 +42,7 @@ export declare type NewReviewOverridesProps = {
     RowGrid2?: PrimitiveOverrideProps<GridProps>;
     RoomNumber?: PrimitiveOverrideProps<TextFieldProps>;
     RoomRating?: PrimitiveOverrideProps<TextFieldProps>;
-    Review?: PrimitiveOverrideProps<TextFieldProps>;
+    Review?: PrimitiveOverrideProps<TextAreaFieldProps>;
 } & EscapeHatchProps;
 export declare type NewReviewProps = React.PropsWithChildren<{
     overrides?: NewReviewOverridesProps | undefined | null;

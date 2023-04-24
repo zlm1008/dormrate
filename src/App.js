@@ -2,7 +2,7 @@
 import "./App.css";
 import { Tabs, TabItem, SearchField } from "@aws-amplify/ui-react";
 import { NewReview } from "./ui-components";
-import { Amplify, Auth } from "aws-amplify";
+import { Amplify, Auth, dynamodb } from "aws-amplify";
 import { Authenticator } from "@aws-amplify/ui-react";
 import { useQuery, gql } from "@apollo/client";
 
@@ -12,9 +12,7 @@ Amplify.configure({
     userPoolWebClientId: "2tkvhvk5j1ktkpado1vhn6s7kt",
     region: "us-east-2",
   },
-  
 });
-
 
 async function signOutAmp() {
   try {
@@ -24,10 +22,10 @@ async function signOutAmp() {
   }
 }
 
-let listReviewsQuery = gql`
+let LIST_REVIEWS = gql`
 {
   query MyQuery {
-    listReviews(limit: 100) {
+    listReviews(limit: 10) {
       items {
         UniversityName
         UniversityRating
@@ -42,7 +40,7 @@ let listReviewsQuery = gql`
 }`;
 
 function ListElements() {
-const { data, loading, error } = useQuery(listReviewsQuery);
+const { data, loading, error } = useQuery(LIST_REVIEWS);
 
   if (loading) return "Loading...";
   if (error) return <pre>{error.message}</pre>
@@ -50,8 +48,8 @@ const { data, loading, error } = useQuery(listReviewsQuery);
   return (
     <div>
       <ul>
-        {data.reviews.map((review) => (
-          <li key={review.UniversityName}>{review.UniveristyRating}</li>
+        {data.Reviews.map((Review) => (
+          <li key={Review.ID}>{Review.UniveristyName}</li>
         ))}
       </ul>
     </div>
@@ -106,7 +104,9 @@ function App() {
                   <div class="card m-2">
                     <h3 class="card-title mt-4 m-3">My Account</h3>
                     <hr></hr>
-                    <div class="card-body"></div>
+                    <div class="card-body">
+                      {}
+                    </div>
                   </div>
                   <div class="card m-2 inline">
                     <h3 class="card-title mt-4 m-3">My Reviews</h3>
