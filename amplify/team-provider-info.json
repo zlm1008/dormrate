@@ -26,14 +26,22 @@
           "deploymentBucketName": "amplify-dormrate-dev-163411-deployment",
           "s3Key": "amplify-builds/reviewsTrigger251505e9-4262522b4e4f6a2f3734-build.zip"
         },
-        "function2": {}
+        "function2": {
+          "deploymentBucketName": "amplify-dormrate-dev-163411-deployment",
+          "s3Key": "amplify-builds/function2-5370506b6d3851506150-build.zip"
+        },
+        "function3": {
+          "deploymentBucketName": "amplify-dormrate-dev-163411-deployment",
+          "s3Key": "amplify-builds/function3-416c6f3974642b315438-build.zip"
+        }
       },
       "auth": {
         "dormrate": {},
         "userPoolGroups": {}
       },
       "api": {
-        "finalAPI": {}
+        "finalAPI": {},
+        "dormrate": {}
       },
       "storage": {
         "reviews": {}

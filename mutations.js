@@ -1,12 +1,12 @@
 /* eslint-disable */
 // this is an auto generated file. This will be overwritten
 
-export const createReview = /* GraphQL */ `
-  mutation CreateReview(
-    $input: CreateReviewInput!
-    $condition: ModelReviewConditionInput
+export const createRating = /* GraphQL */ `
+  mutation CreateRating(
+    $input: CreateRatingInput!
+    $condition: ModelRatingConditionInput
   ) {
-    createReview(input: $input, condition: $condition) {
+    createRating(input: $input, condition: $condition) {
       id
       UniversityName
       UniversityRating
@@ -14,7 +14,7 @@ export const createReview = /* GraphQL */ `
       DormRating
       RoomNumber
       RoomRating
-      Review
+      Rating
       createdAt
       updatedAt
       _version
@@ -23,12 +23,12 @@ export const createReview = /* GraphQL */ `
     }
   }
 `;
-export const updateReview = /* GraphQL */ `
-  mutation UpdateReview(
-    $input: UpdateReviewInput!
-    $condition: ModelReviewConditionInput
+export const updateRating = /* GraphQL */ `
+  mutation UpdateRating(
+    $input: UpdateRatingInput!
+    $condition: ModelRatingConditionInput
   ) {
-    updateReview(input: $input, condition: $condition) {
+    updateRating(input: $input, condition: $condition) {
       id
       UniversityName
       UniversityRating
@@ -36,7 +36,7 @@ export const updateReview = /* GraphQL */ `
       DormRating
       RoomNumber
       RoomRating
-      Review
+      Rating
       createdAt
       updatedAt
       _version
@@ -45,12 +45,12 @@ export const updateReview = /* GraphQL */ `
     }
   }
 `;
-export const deleteReview = /* GraphQL */ `
-  mutation DeleteReview(
-    $input: DeleteReviewInput!
-    $condition: ModelReviewConditionInput
+export const deleteRating = /* GraphQL */ `
+  mutation DeleteRating(
+    $input: DeleteRatingInput!
+    $condition: ModelRatingConditionInput
   ) {
-    deleteReview(input: $input, condition: $condition) {
+    deleteRating(input: $input, condition: $condition) {
       id
       UniversityName
       UniversityRating
@@ -58,7 +58,7 @@ export const deleteReview = /* GraphQL */ `
       DormRating
       RoomNumber
       RoomRating
-      Review
+      Rating
       createdAt
       updatedAt
       _version

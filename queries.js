@@ -1,9 +1,9 @@
 /* eslint-disable */
 // this is an auto generated file. This will be overwritten
 
-export const getReview = /* GraphQL */ `
-  query GetReview($id: ID!) {
-    getReview(id: $id) {
+export const getRating = /* GraphQL */ `
+  query GetRating($id: ID!) {
+    getRating(id: $id) {
       id
       UniversityName
       UniversityRating
@@ -11,7 +11,7 @@ export const getReview = /* GraphQL */ `
       DormRating
       RoomNumber
       RoomRating
-      Review
+      Rating
       createdAt
       updatedAt
       _version
@@ -20,13 +20,13 @@ export const getReview = /* GraphQL */ `
     }
   }
 `;
-export const listReviews = /* GraphQL */ `
-  query ListReviews(
-    $filter: ModelReviewFilterInput
+export const listRatings = /* GraphQL */ `
+  query ListRatings(
+    $filter: ModelRatingFilterInput
     $limit: Int
     $nextToken: String
   ) {
-    listReviews(filter: $filter, limit: $limit, nextToken: $nextToken) {
+    listRatings(filter: $filter, limit: $limit, nextToken: $nextToken) {
       items {
         id
         UniversityName
@@ -35,7 +35,7 @@ export const listReviews = /* GraphQL */ `
         DormRating
         RoomNumber
         RoomRating
-        Review
+        Rating
         createdAt
         updatedAt
         _version
@@ -47,14 +47,14 @@ export const listReviews = /* GraphQL */ `
     }
   }
 `;
-export const syncReviews = /* GraphQL */ `
-  query SyncReviews(
-    $filter: ModelReviewFilterInput
+export const syncRatings = /* GraphQL */ `
+  query SyncRatings(
+    $filter: ModelRatingFilterInput
     $limit: Int
     $nextToken: String
     $lastSync: AWSTimestamp
   ) {
-    syncReviews(
+    syncRatings(
       filter: $filter
       limit: $limit
       nextToken: $nextToken
@@ -68,7 +68,7 @@ export const syncReviews = /* GraphQL */ `
         DormRating
         RoomNumber
         RoomRating
-        Review
+        Rating
         createdAt
         updatedAt
         _version

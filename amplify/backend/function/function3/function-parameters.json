@@ -1,0 +1,23 @@
+{
+  "permissions": {
+    "api": {
+      "finalAPI": [
+        "create",
+        "read",
+        "update",
+        "delete"
+      ],
+      "dormrate": [
+        "Query",
+        "Mutation",
+        "Subscription"
+      ],
+      "dormrate-dev": [
+        "Query",
+        "Mutation",
+        "Subscription"
+      ]
+    }
+  },
+  "lambdaLayers": []
+}

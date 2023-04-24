@@ -1,9 +1,9 @@
 /* eslint-disable */
 // this is an auto generated file. This will be overwritten
 
-export const onCreateReview = /* GraphQL */ `
-  subscription OnCreateReview($filter: ModelSubscriptionReviewFilterInput) {
-    onCreateReview(filter: $filter) {
+export const onCreateRating = /* GraphQL */ `
+  subscription OnCreateRating($filter: ModelSubscriptionRatingFilterInput) {
+    onCreateRating(filter: $filter) {
       id
       UniversityName
       UniversityRating
@@ -11,7 +11,7 @@ export const onCreateReview = /* GraphQL */ `
       DormRating
       RoomNumber
       RoomRating
-      Review
+      Rating
       createdAt
       updatedAt
       _version
@@ -20,9 +20,9 @@ export const onCreateReview = /* GraphQL */ `
     }
   }
 `;
-export const onUpdateReview = /* GraphQL */ `
-  subscription OnUpdateReview($filter: ModelSubscriptionReviewFilterInput) {
-    onUpdateReview(filter: $filter) {
+export const onUpdateRating = /* GraphQL */ `
+  subscription OnUpdateRating($filter: ModelSubscriptionRatingFilterInput) {
+    onUpdateRating(filter: $filter) {
       id
       UniversityName
       UniversityRating
@@ -30,7 +30,7 @@ export const onUpdateReview = /* GraphQL */ `
       DormRating
       RoomNumber
       RoomRating
-      Review
+      Rating
       createdAt
       updatedAt
       _version
@@ -39,9 +39,9 @@ export const onUpdateReview = /* GraphQL */ `
     }
   }
 `;
-export const onDeleteReview = /* GraphQL */ `
-  subscription OnDeleteReview($filter: ModelSubscriptionReviewFilterInput) {
-    onDeleteReview(filter: $filter) {
+export const onDeleteRating = /* GraphQL */ `
+  subscription OnDeleteRating($filter: ModelSubscriptionRatingFilterInput) {
+    onDeleteRating(filter: $filter) {
       id
       UniversityName
       UniversityRating
@@ -49,7 +49,7 @@ export const onDeleteReview = /* GraphQL */ `
       DormRating
       RoomNumber
       RoomRating
-      Review
+      Rating
       createdAt
       updatedAt
       _version

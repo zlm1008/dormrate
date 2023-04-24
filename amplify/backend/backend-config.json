@@ -129,6 +129,30 @@
       "providerPlugin": "awscloudformation",
       "service": "Lambda"
     },
+    "function3": {
+      "build": true,
+      "dependsOn": [
+        {
+          "attributes": [
+            "ApiName",
+            "ApiId"
+          ],
+          "category": "api",
+          "resourceName": "finalAPI"
+        },
+        {
+          "attributes": [
+            "GraphQLAPIIdOutput",
+            "GraphQLAPIEndpointOutput",
+            "GraphQLAPIKeyOutput"
+          ],
+          "category": "api",
+          "resourceName": "dormrate"
+        }
+      ],
+      "providerPlugin": "awscloudformation",
+      "service": "Lambda"
+    },
     "reviewsTrigger251505e9": {
       "build": true,
       "dependsOn": [
@@ -144,6 +168,88 @@
       ],
       "providerPlugin": "awscloudformation",
       "service": "Lambda"
+    }
+  },
+  "parameters": {
+    "AMPLIFY_function_finalFunction_deploymentBucketName": {
+      "usedBy": [
+        {
+          "category": "function",
+          "resourceName": "finalFunction"
+        }
+      ]
+    },
+    "AMPLIFY_function_finalFunction_s3Key": {
+      "usedBy": [
+        {
+          "category": "function",
+          "resourceName": "finalFunction"
+        }
+      ]
+    },
+    "AMPLIFY_function_findRatingById_deploymentBucketName": {
+      "usedBy": [
+        {
+          "category": "function",
+          "resourceName": "findRatingById"
+        }
+      ]
+    },
+    "AMPLIFY_function_findRatingById_s3Key": {
+      "usedBy": [
+        {
+          "category": "function",
+          "resourceName": "findRatingById"
+        }
+      ]
+    },
+    "AMPLIFY_function_function2_deploymentBucketName": {
+      "usedBy": [
+        {
+          "category": "function",
+          "resourceName": "function2"
+        }
+      ]
+    },
+    "AMPLIFY_function_function2_s3Key": {
+      "usedBy": [
+        {
+          "category": "function",
+          "resourceName": "function2"
+        }
+      ]
+    },
+    "AMPLIFY_function_function3_deploymentBucketName": {
+      "usedBy": [
+        {
+          "category": "function",
+          "resourceName": "function3"
+        }
+      ]
+    },
+    "AMPLIFY_function_function3_s3Key": {
+      "usedBy": [
+        {
+          "category": "function",
+          "resourceName": "function3"
+        }
+      ]
+    },
+    "AMPLIFY_function_reviewsTrigger251505e9_deploymentBucketName": {
+      "usedBy": [
+        {
+          "category": "function",
+          "resourceName": "reviewsTrigger251505e9"
+        }
+      ]
+    },
+    "AMPLIFY_function_reviewsTrigger251505e9_s3Key": {
+      "usedBy": [
+        {
+          "category": "function",
+          "resourceName": "reviewsTrigger251505e9"
+        }
+      ]
     }
   },
   "storage": {
