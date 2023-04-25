@@ -22,7 +22,7 @@ export function ListReviews() {
   const { data, loading, error } = useQuery(LIST_REVIEWS);
 
   if (loading) return "Loading...";
-  if (error) return <pre>{"ERROR" + error.message}</pre>;
+  if (error) return <pre>{"ERROR: " + error.message}</pre>;
   return (
     <div>
       <Grid>{JSON.stringify(data)}</Grid>
