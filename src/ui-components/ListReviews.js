@@ -2,9 +2,8 @@ import { gql, useQuery } from "@apollo/client";
 import { Grid } from "@aws-amplify/ui-react"
 
 let LIST_REVIEWS = gql`
-  {
-    query {
-      listReviews(limit: 10) {
+    {
+      listRatings(limit: 10) {
         items {
           UniversityName
           UniversityRating
@@ -12,11 +11,10 @@ let LIST_REVIEWS = gql`
           DormRating
           RoomNumber
           RoomRating
-          Review
+          Rating
         }
       }
     }
-  }
 `;
 
 //const allReviews = API.graphql({ query: LIST_REVIEWS });
@@ -24,7 +22,7 @@ export function ListReviews() {
   const { data, loading, error } = useQuery(LIST_REVIEWS);
 
   if (loading) return "Loading...";
-  if (error) return <pre>{error.message}</pre>;
+  if (error) return <pre>{"ERROR" + error.message}</pre>;
   return (
     <div>
       <Grid>{JSON.stringify(data)}</Grid>
