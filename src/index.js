@@ -12,9 +12,9 @@ import "@aws-amplify/ui-react/styles.css";
 Amplify.configure(awsconfig);
 
 const client = new ApolloClient({
-  uri: "https://eicyj3ddpfbn7lwit7thyf2c5i.appsync-api.us-east-2.amazonaws.com/graphql",
+  uri: "https://qmn4h6l7tfeilbjeov3tdh33oi.appsync-api.us-east-1.amazonaws.com/graphql",
   headers: { 
-    "X-API-KEY": "da2-xx3vjmu3lbecdpg3lloajhf6dm",
+    "X-API-KEY": "da2-ku5ukku4yzbkjp3fahii22huha",
   },
   cache: new InMemoryCache(),
 });
