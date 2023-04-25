@@ -22,7 +22,7 @@ const client = new ApolloClient({
 const root = ReactDOM.createRoot(document.getElementById("root"));
 root.render(
   <React.StrictMode>
-    <Authenticator>
+    <Authenticator className="mt-5">
       <ApolloProvider client={client}>
         <App />
       </ApolloProvider>

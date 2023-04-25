@@ -1,0 +1,10 @@
+type Rating @model @auth(rules: [{allow: public}, {allow: private}]) {
+  id: ID!
+  UniversityName: String!
+  UniversityRating: Int!
+  DormName: String!
+  DormRating: Int!
+  RoomNumber: String!
+  RoomRating: Int!
+  Rating: String
+}

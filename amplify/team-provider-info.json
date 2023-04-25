@@ -13,11 +13,7 @@
     },
     "categories": {
       "function": {
-        "searchById": {},
-        "finalFunction": {
-          "deploymentBucketName": "amplify-dormrate-dev-163411-deployment",
-          "s3Key": "amplify-builds/finalFunction-50536449304c315a3373-build.zip"
-        }
+        "searchById": {}
       },
       "auth": {
         "dormrate": {},
