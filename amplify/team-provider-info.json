@@ -14,34 +14,14 @@
     "categories": {
       "function": {
         "searchById": {},
-        "findRatingById": {
-          "deploymentBucketName": "amplify-dormrate-dev-163411-deployment",
-          "s3Key": "amplify-builds/findRatingById-4e4c63622b4c785a4632-build.zip"
-        },
         "finalFunction": {
           "deploymentBucketName": "amplify-dormrate-dev-163411-deployment",
           "s3Key": "amplify-builds/finalFunction-50536449304c315a3373-build.zip"
-        },
-        "reviewsTrigger251505e9": {
-          "deploymentBucketName": "amplify-dormrate-dev-163411-deployment",
-          "s3Key": "amplify-builds/reviewsTrigger251505e9-4262522b4e4f6a2f3734-build.zip"
-        },
-        "function2": {
-          "deploymentBucketName": "amplify-dormrate-dev-163411-deployment",
-          "s3Key": "amplify-builds/function2-5370506b6d3851506150-build.zip"
-        },
-        "function3": {
-          "deploymentBucketName": "amplify-dormrate-dev-163411-deployment",
-          "s3Key": "amplify-builds/function3-416c6f3974642b315438-build.zip"
         }
       },
       "auth": {
         "dormrate": {},
         "userPoolGroups": {}
-      },
-      "api": {
-        "finalAPI": {},
-        "dormrate": {}
       },
       "storage": {
         "reviews": {}

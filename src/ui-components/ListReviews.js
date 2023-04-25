@@ -3,7 +3,7 @@ import { Grid } from "@aws-amplify/ui-react"
 
 let LIST_REVIEWS = gql`
     {
-      listReviews(limit: 10) {
+      listRatingModel1s(limit: 10) {
         items {
           UniversityName
           UniversityRating
