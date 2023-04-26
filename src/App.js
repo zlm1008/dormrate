@@ -1,8 +1,7 @@
 /* eslint-disable no-undef */
 import "./App.css";
 import { Tabs, TabItem, SearchField } from "@aws-amplify/ui-react";
-import { NewReview } from "./ui-components";
-import { ListReviews } from "./ui-components/ListReviews";
+import { DormReview, Reviews } from "./ui-components";
 import { Amplify, Auth } from "aws-amplify";
 //import { Authenticator } from "@aws-amplify/ui-react";
 
@@ -29,33 +28,15 @@ function App() {
         {/* Home Page*/}
         <TabItem title="Home">
           <header className="App-header">
-            <div class="col mt-3">
-              <div class="row">
-                <div class="card m-2">
-                  <h3 class="card-title mt-4 m-3">Recent Reviews</h3>
-                  <SearchField></SearchField>
-                  <hr></hr>
-                  <div class="card-body">{ListReviews()}</div>
-                </div>
-              </div>
-            </div>
+            <h3 class="card-title mt-4 m-3">Recent Reviews</h3>
+            <Reviews />
           </header>
         </TabItem>
 
         {/* New Rating Page*/}
         <TabItem title="New Review">
           <header className="App-header">
-            <div class="col mt-3">
-              <div class="row">
-                <div class="card">
-                  <h3 class="card-title mt-4">New Review</h3>
-                  <hr></hr>
-                  <div class="card-body">
-                    <NewReview />
-                  </div>
-                </div>
-              </div>
-            </div>
+            <DormReview />
           </header>
         </TabItem>
 
@@ -87,6 +68,5 @@ function App() {
     </div>
   );
 }
-
 
 export default App;

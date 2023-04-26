@@ -14,21 +14,25 @@ export declare type ValidationResponse = {
 export declare type ValidationFunction<T> = (value: T, validationResponse: ValidationResponse) => ValidationResponse | Promise<ValidationResponse>;
 export declare type NewReviewInputValues = {
     UniversityName?: string;
-    UniversityRating?: number;
+    UniversityRating?: string;
     DormName?: string;
-    DormRating?: number;
+    DormRating?: string;
     RoomNumber?: string;
-    RoomRating?: number;
+    RoomRating?: string;
     Rating?: string;
+    city?: string;
+    state?: string;
 };
 export declare type NewReviewValidationValues = {
     UniversityName?: ValidationFunction<string>;
-    UniversityRating?: ValidationFunction<number>;
+    UniversityRating?: ValidationFunction<string>;
     DormName?: ValidationFunction<string>;
-    DormRating?: ValidationFunction<number>;
+    DormRating?: ValidationFunction<string>;
     RoomNumber?: ValidationFunction<string>;
-    RoomRating?: ValidationFunction<number>;
+    RoomRating?: ValidationFunction<string>;
     Rating?: ValidationFunction<string>;
+    city?: ValidationFunction<string>;
+    state?: ValidationFunction<string>;
 };
 export declare type PrimitiveOverrideProps<T> = Partial<T> & React.DOMAttributes<HTMLDivElement>;
 export declare type NewReviewOverridesProps = {
@@ -43,6 +47,8 @@ export declare type NewReviewOverridesProps = {
     RoomNumber?: PrimitiveOverrideProps<TextFieldProps>;
     RoomRating?: PrimitiveOverrideProps<TextFieldProps>;
     Rating?: PrimitiveOverrideProps<TextAreaFieldProps>;
+    city?: PrimitiveOverrideProps<TextFieldProps>;
+    state?: PrimitiveOverrideProps<TextFieldProps>;
 } & EscapeHatchProps;
 export declare type NewReviewProps = React.PropsWithChildren<{
     overrides?: NewReviewOverridesProps | undefined | null;

@@ -1,10 +1,34 @@
-type Rating @model @auth(rules: [{allow: public}, {allow: private}]) {
+type Review @model @auth(rules: [{allow: private}]) {
+  id: ID!
+  author: String!
+  review: String!
+  roomID: ID! @index(name: "byRoom")
+  universityID: ID! @index(name: "byUniversity")
+  dormID: ID! @index(name: "byDorm")
+}
+
+type Room @model @auth(rules: [{allow: private}]) {
+  id: ID!
+  RoomNumber: String!
+  dormID: ID! @index(name: "byDorm")
+  universityID: ID! @index(name: "byUniversity")
+  Reviews: [Review] @hasMany(indexName: "byRoom", fields: ["id"])
+}
+
+type Dorm @model @auth(rules: [{allow: private}]) {
+  id: ID!
+  DormName: String!
+  Rooms: [Room] @hasMany(indexName: "byDorm", fields: ["id"])
+  universityID: ID! @index(name: "byUniversity")
+  Reviews: [Review] @hasMany(indexName: "byDorm", fields: ["id"])
+}
+
+type University @model @auth(rules: [{allow: private}]) {
   id: ID!
   UniversityName: String!
-  UniversityRating: Int!
-  DormName: String!
-  DormRating: Int!
-  RoomNumber: String!
-  RoomRating: Int!
-  Rating: String
-}
+  Dorms: [Dorm] @hasMany(indexName: "byUniversity", fields: ["id"])
+  Rooms: [Room] @hasMany(indexName: "byUniversity", fields: ["id"])
+  Reviews: [Review] @hasMany(indexName: "byUniversity", fields: ["id"])
+  city: String!
+  state: String!
+} 

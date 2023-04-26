@@ -43,9 +43,7 @@
     ],
     "useDefault": "manual",
     "userPoolGroups": false,
-    "userPoolGroupList": [
-      "dormrate"
-    ],
+    "userPoolGroupList": [],
     "adminQueries": false,
     "thirdPartyAuth": false,
     "authProviders": [],
@@ -64,6 +62,7 @@
       ]
     },
     "breakCircularDependency": true,
-    "dependsOn": []
+    "dependsOn": [],
+    "hostedUI": false
   }
 }

@@ -15,7 +15,7 @@ import {
   useTheme,
 } from "@aws-amplify/ui-react";
 import { getOverrideProps } from "@aws-amplify/ui-react/internal";
-import { Rating as Rating0 } from "../models";
+import { University } from "../models";
 import { fetchByPath, validateField } from "./utils";
 import { DataStore } from "aws-amplify";
 export default function NewReview(props) {
@@ -38,6 +38,8 @@ export default function NewReview(props) {
     RoomNumber: "",
     RoomRating: "",
     Rating: "",
+    city: "",
+    state: "",
   };
   const [UniversityName, setUniversityName] = React.useState(
     initialValues.UniversityName
@@ -49,7 +51,9 @@ export default function NewReview(props) {
   const [DormRating, setDormRating] = React.useState(initialValues.DormRating);
   const [RoomNumber, setRoomNumber] = React.useState(initialValues.RoomNumber);
   const [RoomRating, setRoomRating] = React.useState(initialValues.RoomRating);
-  const [rating, setRating] = React.useState(initialValues.Rating);
+  const [Rating, setRating] = React.useState(initialValues.Rating);
+  const [city, setCity] = React.useState(initialValues.city);
+  const [state, setState] = React.useState(initialValues.state);
   const [errors, setErrors] = React.useState({});
   const resetStateValues = () => {
     setUniversityName(initialValues.UniversityName);
@@ -59,16 +63,20 @@ export default function NewReview(props) {
     setRoomNumber(initialValues.RoomNumber);
     setRoomRating(initialValues.RoomRating);
     setRating(initialValues.Rating);
+    setCity(initialValues.city);
+    setState(initialValues.state);
     setErrors({});
   };
   const validations = {
     UniversityName: [{ type: "Required" }],
-    UniversityRating: [{ type: "Required" }],
-    DormName: [{ type: "Required" }],
-    DormRating: [{ type: "Required" }],
-    RoomNumber: [{ type: "Required" }],
-    RoomRating: [{ type: "Required" }],
+    UniversityRating: [],
+    DormName: [],
+    DormRating: [],
+    RoomNumber: [],
+    RoomRating: [],
     Rating: [],
+    city: [{ type: "Required" }],
+    state: [{ type: "Required" }],
   };
   const runValidationTasks = async (
     fieldName,
@@ -102,7 +110,9 @@ export default function NewReview(props) {
           DormRating,
           RoomNumber,
           RoomRating,
-          Rating: rating,
+          Rating,
+          city,
+          state,
         };
         const validationResponses = await Promise.all(
           Object.keys(validations).reduce((promises, fieldName) => {
@@ -132,7 +142,12 @@ export default function NewReview(props) {
               modelFields[key] = undefined;
             }
           });
-          await DataStore.save(new Rating0(modelFields));
+          const modelFieldsToSave = {
+            UniversityName: modelFields.UniversityName,
+            city: modelFields.city,
+            state: modelFields.state,
+          };
+          await DataStore.save(new University(modelFieldsToSave));
           if (onSuccess) {
             onSuccess(modelFields);
           }
@@ -169,7 +184,9 @@ export default function NewReview(props) {
                 DormRating,
                 RoomNumber,
                 RoomRating,
-                Rating: rating,
+                Rating,
+                city,
+                state,
               };
               const result = onChange(modelFields);
               value = result?.UniversityName ?? value;
@@ -185,16 +202,10 @@ export default function NewReview(props) {
           {...getOverrideProps(overrides, "UniversityName")}
         ></TextField>
         <TextField
-          label="University rating"
-          isRequired={true}
-          isReadOnly={false}
-          type="number"
-          step="any"
+          label="Label"
           value={UniversityRating}
           onChange={(e) => {
-            let value = isNaN(parseInt(e.target.value))
-              ? e.target.value
-              : parseInt(e.target.value);
+            let { value } = e.target;
             if (onChange) {
               const modelFields = {
                 UniversityName,
@@ -203,7 +214,9 @@ export default function NewReview(props) {
                 DormRating,
                 RoomNumber,
                 RoomRating,
-                Rating: rating,
+                Rating,
+                city,
+                state,
               };
               const result = onChange(modelFields);
               value = result?.UniversityRating ?? value;
@@ -228,9 +241,7 @@ export default function NewReview(props) {
         {...getOverrideProps(overrides, "RowGrid1")}
       >
         <TextField
-          label="Dorm name"
-          isRequired={true}
-          isReadOnly={false}
+          label="Label"
           value={DormName}
           onChange={(e) => {
             let { value } = e.target;
@@ -242,7 +253,9 @@ export default function NewReview(props) {
                 DormRating,
                 RoomNumber,
                 RoomRating,
-                Rating: rating,
+                Rating,
+                city,
+                state,
               };
               const result = onChange(modelFields);
               value = result?.DormName ?? value;
@@ -258,16 +271,10 @@ export default function NewReview(props) {
           {...getOverrideProps(overrides, "DormName")}
         ></TextField>
         <TextField
-          label="Dorm rating"
-          isRequired={true}
-          isReadOnly={false}
-          type="number"
-          step="any"
+          label="Label"
           value={DormRating}
           onChange={(e) => {
-            let value = isNaN(parseInt(e.target.value))
-              ? e.target.value
-              : parseInt(e.target.value);
+            let { value } = e.target;
             if (onChange) {
               const modelFields = {
                 UniversityName,
@@ -276,7 +283,9 @@ export default function NewReview(props) {
                 DormRating: value,
                 RoomNumber,
                 RoomRating,
-                Rating: rating,
+                Rating,
+                city,
+                state,
               };
               const result = onChange(modelFields);
               value = result?.DormRating ?? value;
@@ -299,9 +308,7 @@ export default function NewReview(props) {
         {...getOverrideProps(overrides, "RowGrid2")}
       >
         <TextField
-          label="Room number"
-          isRequired={true}
-          isReadOnly={false}
+          label="Label"
           value={RoomNumber}
           onChange={(e) => {
             let { value } = e.target;
@@ -313,7 +320,9 @@ export default function NewReview(props) {
                 DormRating,
                 RoomNumber: value,
                 RoomRating,
-                Rating: rating,
+                Rating,
+                city,
+                state,
               };
               const result = onChange(modelFields);
               value = result?.RoomNumber ?? value;
@@ -329,16 +338,10 @@ export default function NewReview(props) {
           {...getOverrideProps(overrides, "RoomNumber")}
         ></TextField>
         <TextField
-          label="Room rating"
-          isRequired={true}
-          isReadOnly={false}
-          type="number"
-          step="any"
+          label="Label"
           value={RoomRating}
           onChange={(e) => {
-            let value = isNaN(parseInt(e.target.value))
-              ? e.target.value
-              : parseInt(e.target.value);
+            let { value } = e.target;
             if (onChange) {
               const modelFields = {
                 UniversityName,
@@ -347,7 +350,9 @@ export default function NewReview(props) {
                 DormRating,
                 RoomNumber,
                 RoomRating: value,
-                Rating: rating,
+                Rating,
+                city,
+                state,
               };
               const result = onChange(modelFields);
               value = result?.RoomRating ?? value;
@@ -364,9 +369,7 @@ export default function NewReview(props) {
         ></TextField>
       </Grid>
       <TextAreaField
-        label="Rating"
-        isRequired={false}
-        isReadOnly={false}
+        label="Label"
         onChange={(e) => {
           let { value } = e.target;
           if (onChange) {
@@ -378,6 +381,8 @@ export default function NewReview(props) {
               RoomNumber,
               RoomRating,
               Rating: value,
+              city,
+              state,
             };
             const result = onChange(modelFields);
             value = result?.Rating ?? value;
@@ -387,11 +392,75 @@ export default function NewReview(props) {
           }
           setRating(value);
         }}
-        onBlur={() => runValidationTasks("Rating", rating)}
+        onBlur={() => runValidationTasks("Rating", Rating)}
         errorMessage={errors.Rating?.errorMessage}
         hasError={errors.Rating?.hasError}
         {...getOverrideProps(overrides, "Rating")}
       ></TextAreaField>
+      <TextField
+        label="City"
+        isRequired={true}
+        isReadOnly={false}
+        value={city}
+        onChange={(e) => {
+          let { value } = e.target;
+          if (onChange) {
+            const modelFields = {
+              UniversityName,
+              UniversityRating,
+              DormName,
+              DormRating,
+              RoomNumber,
+              RoomRating,
+              Rating,
+              city: value,
+              state,
+            };
+            const result = onChange(modelFields);
+            value = result?.city ?? value;
+          }
+          if (errors.city?.hasError) {
+            runValidationTasks("city", value);
+          }
+          setCity(value);
+        }}
+        onBlur={() => runValidationTasks("city", city)}
+        errorMessage={errors.city?.errorMessage}
+        hasError={errors.city?.hasError}
+        {...getOverrideProps(overrides, "city")}
+      ></TextField>
+      <TextField
+        label="State"
+        isRequired={true}
+        isReadOnly={false}
+        value={state}
+        onChange={(e) => {
+          let { value } = e.target;
+          if (onChange) {
+            const modelFields = {
+              UniversityName,
+              UniversityRating,
+              DormName,
+              DormRating,
+              RoomNumber,
+              RoomRating,
+              Rating,
+              city,
+              state: value,
+            };
+            const result = onChange(modelFields);
+            value = result?.state ?? value;
+          }
+          if (errors.state?.hasError) {
+            runValidationTasks("state", value);
+          }
+          setState(value);
+        }}
+        onBlur={() => runValidationTasks("state", state)}
+        errorMessage={errors.state?.errorMessage}
+        hasError={errors.state?.hasError}
+        {...getOverrideProps(overrides, "state")}
+      ></TextField>
       <Flex
         justifyContent="space-between"
         {...getOverrideProps(overrides, "CTAFlex")}
